@@ -65,12 +65,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t lptest-hello-world .
+          docker build -t lipikapal/lptest-hello-world .
         working-directory: ./  # Set the working directory where artifacts are downloaded
 
       - name: Push Docker image
         run: |
-          docker push lptest-hello-world:latest
+          docker push lipikapal/lptest-hello-world:latest
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
