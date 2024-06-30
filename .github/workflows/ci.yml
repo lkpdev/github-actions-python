@@ -76,6 +76,11 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Scan Docker image with Trivy
+        run: |
+          docker pull aquasec/trivy:latest
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest --severity HIGH --no-progress lipikapal/lptest-hello-world:latest
+
       - name: Run Docker container and print output
         run: |
           docker run lipikapal/lptest-hello-world:latest
