@@ -24,9 +24,8 @@ jobs:
         if  [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Python script
       run: python main.py
-    - name: Test with pytest
-      run: |
-        pytest
+    - name: Print python script output
+      run: python core.py
     - name: Run Unit Tests and generate coverage report
       run: |
         cd src
