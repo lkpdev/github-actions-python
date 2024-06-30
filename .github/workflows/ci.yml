@@ -25,7 +25,7 @@ jobs:
     - name: Run Python script
       run: python main.py
     - name: Print python script output
-      run: python core.py
+      run: python src/helloworld/core.py
     - name: Run Unit Tests and generate coverage report
       run: |
         cd src
