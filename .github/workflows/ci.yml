@@ -10,12 +10,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ "3.9", "3.10", "3.11" ]
+
     steps:
     - uses: actions/checkout@v4
-    - name: Set up python 3.7
-      uses: actions/setup-python@v5
+    - name: Set up python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
       with:
-        python-version: 3.7
+        python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         cd src
@@ -32,7 +37,7 @@ jobs:
         coverage report
         coverage html
     - name: Archive code coverage html report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: code-coverage-report
         path: src/htmlcov
@@ -42,7 +47,7 @@ jobs:
         python -m pip install --user --upgrade build
         python -m build
     - name: Archive package
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: hello-world
         path: src/dist    
