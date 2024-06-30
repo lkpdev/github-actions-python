@@ -22,8 +22,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install coverage pytest
         if  [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run Python script
-      run: python main.py
+#    - name: Run Python script
+#      run: python main.py
     - name: Print python script output
       run: python src/helloworld/core.py
     - name: Run Unit Tests and generate coverage report
