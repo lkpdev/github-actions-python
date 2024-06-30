@@ -73,7 +73,7 @@ jobs:
           docker push lipikapal/lptest-hello-world:latest
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Run Docker container and print output
         run: |
