@@ -66,7 +66,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t lptest-hello-world .
-        working-directory: src/dist  # Set the working directory where artifacts are downloaded
+        working-directory: ./  # Set the working directory where artifacts are downloaded
 
       - name: Push Docker image
         run: |
