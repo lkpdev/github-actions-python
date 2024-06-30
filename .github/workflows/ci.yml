@@ -78,6 +78,6 @@ jobs:
 
       - name: Run Docker container and print output
         run: |
-          docker run lptest-hello-world:latest
+          docker run lipikapal/lptest-hello-world:latest
 
 
