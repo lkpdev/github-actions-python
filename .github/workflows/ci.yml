@@ -23,7 +23,7 @@ jobs:
         pip install coverage
         if  [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Python script
-    - run: |
+      run: |
           cd src/helloworld
           python core.py
     - name: Run Unit Tests and generate coverage report
